@@ -10,8 +10,6 @@ import butterknife.ButterKnife
 /**
  * Created by camlh on 7/19/2017.
  */
-
-
 abstract class BaseFragment<T> : Fragment() {
 
     protected lateinit var activity: BaseActivity<T>

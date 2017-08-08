@@ -1,7 +1,9 @@
 package io.segu.sfilm.listing
 
+import io.segu.sfilm.Api
 import io.segu.sfilm.Movie
 import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
 
 /**
@@ -33,18 +35,19 @@ object MoviesListingParser {
                 movies.add(getMovie(results.getJSONObject(i)))
             }
         } else {
-
+            // No results
         }
 
         return movies
     }
 
+    @Throws(JSONException::class)
     fun getMovie(result: JSONObject) = Movie(
             result.getString(ID),
             result.getString(OVERVIEW),
             result.getString(RELEASE_DATE),
-            result.getString(POSTER_PATH),
-            result.getString(BACKFDROP_PATH),
+            Api.POSTER_PATH + result.getString(POSTER_PATH),
+            Api.BACKDROP_PATH + result.getString(BACKFDROP_PATH),
             result.getString(TITLE),
             result.getDouble(VOTE_AVERAGE)
     )

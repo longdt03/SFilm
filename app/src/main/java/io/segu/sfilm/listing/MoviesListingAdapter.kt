@@ -1,6 +1,9 @@
 package io.segu.sfilm.listing
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.support.v4.content.ContextCompat
+import android.support.v7.graphics.Palette
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +14,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import io.segu.sfilm.Movie
 import io.segu.sfilm.R
@@ -26,13 +30,13 @@ class MoviesListingAdapter(private val movies: List<Movie>, private val view: Mo
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
         @BindView(R.id.iv_movie_poster)
-        internal lateinit var ivMoviePoster: ImageView;
+        lateinit var ivMoviePoster: ImageView;
 
         @BindView(R.id.title_background)
-        internal lateinit var titleBackground: View;
+        lateinit var titleBackground: View;
 
         @BindView(R.id.tv_movie_name)
-        internal lateinit var tvMoviename: TextView
+        lateinit var tvMoviename: TextView
 
         var movie: Movie? = null
 
@@ -59,7 +63,18 @@ class MoviesListingAdapter(private val movies: List<Movie>, private val view: Mo
         Glide.with(this.context).load(holder.movie!!.posterPath)
                 .asBitmap()
                 .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .into(BitmapImageViewTarget(holder.ivMoviePoster))
+                .into<BitmapImageViewTarget>(object : BitmapImageViewTarget(holder.ivMoviePoster) {
+                    override fun onResourceReady(resource: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                        super.onResourceReady(resource, glideAnimation)
+
+                        Palette.from(resource).generate {
+                            palette ->
+                            holder.titleBackground.setBackgroundColor(palette.getVibrantColor(
+                                    ContextCompat.getColor(context!!, R.color.color_black_translucent_60)
+                            ))
+                        }
+                    }
+                })
     }
 
     override fun getItemCount() = this.movies.size

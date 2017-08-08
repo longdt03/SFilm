@@ -213,12 +213,12 @@ class MovieDetailsFragment : BaseFragment<Int>(), MovieDetailsView, View.OnClick
 
     private fun onThumbnailClick(view: View) {
         val videoUrl = view.tag as String
-        val playViewIntent = Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl))
-        startActivity(playViewIntent)
+        val playVideoIntent = Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl))
+        startActivity(playVideoIntent)
     }
 
     private fun onFavoriteClick() {
-        this.movieDetailsPresenter!!.onFavoriteClick(movie!!)
+        this.movieDetailsPresenter!!.onFavoriteClick(this.movie!!)
     }
 
     override fun onDestroyView() {

@@ -7,5 +7,5 @@ import javax.inject.Scope
  */
 
 @Scope
-@kotlin.annotation.Retention
+@Retention(AnnotationRetention.RUNTIME)
 annotation class ListingScope

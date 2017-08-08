@@ -70,7 +70,7 @@ class MovieDetailsPresenterImpl(private val movieDetailsInteractor: MovieDetails
 
     override fun destroy() {
         this.view = null
-        RxUtils.unsubscribe(this.trailersSubscription, this.reviewSubscription)
+        RxUtils.unsubscribe(this.trailersSubscription!!, this.reviewSubscription!!)
     }
 
     fun onGetTrailersSuccess(videos: List<Video>) {

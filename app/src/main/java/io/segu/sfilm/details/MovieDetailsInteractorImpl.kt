@@ -29,7 +29,7 @@ class MovieDetailsInteractorImpl(private val requestHandler: RequestHandler) : M
 
     @Throws(IOException::class, JSONException::class)
     fun getVideoList(id: String): List<Video> {
-        val url = String.format(Api.GET_REVIEWS, id)
+        val url = String.format(Api.GET_TRAILERS, id)
 
         val request = RequestGenerator.get(url)
 

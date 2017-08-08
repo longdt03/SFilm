@@ -7,15 +7,15 @@ import rx.Subscription
  */
 
 object RxUtils {
-    fun unsubscribe(sub: Subscription?) {
-        if (!sub!!.isUnsubscribed) {
+    fun unsubscribe(sub: Subscription) {
+        if (!sub.isUnsubscribed) {
             sub.unsubscribe()
         }
     }
 
-    fun unsubscribe(vararg subscriptions: Subscription?) {
+    fun unsubscribe(vararg subscriptions: Subscription) {
         for (subscription in subscriptions) {
-            if (!subscription!!.isUnsubscribed) {
+            if (!subscription.isUnsubscribed) {
                 subscription.unsubscribe()
             } else {
                 // Already unsubscribed

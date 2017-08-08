@@ -13,5 +13,5 @@ interface MoviesListingView {
 
     fun loadingFailed(errorMessage: String)
 
-    fun onMovieClicked(movide: Movie)
+    fun onMovieClicked(movie: Movie)
 }

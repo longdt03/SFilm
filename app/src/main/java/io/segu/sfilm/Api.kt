@@ -5,7 +5,7 @@ package io.segu.sfilm
  */
 
 object Api {
-    private val API_KEY = ""
+    private val API_KEY = "bb541819d12727ddff5b3d8632db8572"
 
     val GET_POPULAR_MOVIES = "http://api.themoviedb.org/3/discover/movie?language=en&sort_by=popularity.desc&api_key=" + API_KEY
     val GET_HIGHEST_RATED_MOVIES = "http://api.themoviedb.org/3/discover/movie?vote_count.gte=500&language=en&sort_by=vote_average.desc&api_key=" + API_KEY

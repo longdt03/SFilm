@@ -31,7 +31,7 @@ class MoviesListingPresenterImpl(private val interactor: MoviesListingInteractor
 
     override fun destroy() {
         this.view = null
-        RxUtils.unsubscribe(this.fetchSubscription)
+        RxUtils.unsubscribe(this.fetchSubscription!!)
     }
 
     private fun showLoading() {

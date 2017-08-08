@@ -11,6 +11,6 @@
         android:name="io.segu.sfilm.listing.MoviesListingFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_movies" />
+        tools:layout="@layout/fragment_movies_listing" />
 
 </LinearLayout>
