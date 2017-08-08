@@ -5,7 +5,7 @@
               android:orientation="vertical">
 
     <TextView
-        android:id="@+id/trailers_label"
+        android:id="@+id/tv_trailers_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/trailers"
@@ -14,13 +14,13 @@
         android:visibility="gone"/>
 
     <HorizontalScrollView
-        android:id="@+id/trailers_container"
+        android:id="@+id/view_horiz_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone">
 
         <LinearLayout
-            android:id="@+id/trailers"
+            android:id="@+id/view_trailers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"/>
@@ -28,7 +28,7 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/reviews_label"
+        android:id="@+id/tv_reviews_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -38,7 +38,7 @@
         android:visibility="gone"/>
 
     <LinearLayout
-        android:id="@+id/reviews"
+        android:id="@+id/view_reviews"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"

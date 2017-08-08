@@ -16,11 +16,15 @@ import java.io.IOException
 class MovieDetailsInteractorImpl(private val requestHandler: RequestHandler) : MovieDetailsInteractor {
 
     override fun getTrailers(id: String): Observable<List<Video>> {
-        return Observable.fromCallable { getVideoList(id) }
+        return Observable.fromCallable {
+            this.getVideoList(id)
+        }
     }
 
     override fun getReviews(id: String): Observable<List<Review>> {
-        return Observable.fromCallable { getReviewList(id) }
+        return Observable.fromCallable {
+            this.getReviewList(id)
+        }
     }
 
     @Throws(IOException::class, JSONException::class)

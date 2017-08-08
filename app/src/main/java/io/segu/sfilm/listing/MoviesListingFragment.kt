@@ -3,7 +3,7 @@ package io.segu.sfilm.listing
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
-import io.segu.sfilm.BaseAplication
+import io.segu.sfilm.BaseApplication
 import io.segu.sfilm.Movie
 import javax.inject.Inject
 
@@ -30,7 +30,7 @@ class MoviesListingFragment : Fragment(), MoviesListingView {
         setHasOptionsMenu(true)
         retainInstance = true
 
-        (activity.application as BaseAplication).
+        (activity.application as BaseApplication).createListingComponent().inject(this)
     }
 
     override fun showMovies(movies: List<Movie>) {

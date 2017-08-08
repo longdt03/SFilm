@@ -7,7 +7,7 @@
     <include layout="@layout/toolbar" />
 
     <fragment
-        android:id="@+id/fragment_listing"
+        android:id="@+id/fragment_movie_listing"
         android:name="io.segu.sfilm.listing.MoviesListingFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

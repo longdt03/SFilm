@@ -12,9 +12,11 @@ import javax.inject.Singleton
  */
 
 @Module
-object NetworkModule {
+class NetworkModule {
 
-    val CONNECT_TIMEOUT_IN_MS = 30000L
+    companion object {
+        val CONNECT_TIMEOUT_IN_MS = 30000L
+    }
 
     @Provides
     @Singleton
